@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>查询结果显示-
+			<?php echo $config['webtitle']; ?>
+		</title>
+		<link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<link href="/css/style.css" type="text/css" rel="stylesheet" />
+
+	</head>
+
+	<body>
+		<div class="aw">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">退出系统</span></button>
+					<h3 class="panel-title">查询结果显示-管理后台-
+			<?php echo $config['webtitle']; ?><span class="pull-right">您查的订单号：<?php echo $data['title']; ?></span></h3>
+				</div>
+				<div class="panel-body">
+					<h1><small>订单</small> <?php echo $data['title']; ?> <small>详情</small></h1>
+					<div class="well"><?php echo $data['content']; ?></div>
+				</div>
+				<div class="panel-footer">
+					<a href="/" class="btn btn-danger">返　回</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

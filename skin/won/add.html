@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>后台管理-
+			<?php echo $config['webtitle']; ?>
+		</title>
+		<link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/plus/ueditor/ueditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/plus/ueditor/ueditor.all.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/plus/ueditor/lang/zh-cn/zh-cn.js"></script>
+		<link href="/css/style.css" type="text/css" rel="stylesheet" />
+		<script>
+			$(function() {
+				$('.close').click(function() {
+					document.location = '?ac=logout';
+				});
+				$('.back').click(function() {
+					document.location = '/_gl/';
+				});
+				
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="aw">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">退出系统</span></button>
+					<h3 class="panel-title">数据添加-管理后台-
+			<?php echo $config['webtitle']; ?><span class="pull-right">用户ID:<?php echo $config['user'];?></span><span class="pull-right">欢迎用户<?php echo $config['name'];?>登录后台</span></h3>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<form method="post" action="index.php">
+							<input type="hidden" name="ac" value="add" />
+							
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1">订单号</span>
+								<input name="title" type="text" class="form-control" placeholder="请输入订单号" aria-describedby="sizing-addon1" value="" >
+								<span class="input-group-addon red">必需输入项</span>
+							</div>
+							<div class="input-group input-group-lg">
+								<script id="editor" type="text/plain" style="width:100%;height:300px;">
+									
+								</script>
+							</div>
+							<button type="submit" class="btn btn-primary">添　加</button>
+							<button type="button" class="btn back">返　回</button>
+						</form>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+			//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+			var ue = UE.getEditor('editor');
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>后台管理-
+			<?php echo $config['webtitle']; ?>
+		</title>
+		<link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<link href="/css/style.css" type="text/css" rel="stylesheet" />
+		<script>
+			$(function() {
+				$('.close').click(function() {
+					document.location = '?ac=logout';
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="aw">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">退出系统</span></button>
+					<h3 class="panel-title">管理后台-
+			<?php echo $config['webtitle']; ?><span class="pull-right">用户ID:<?php echo $config['user'];?></span><span class="pull-right">欢迎用户<?php echo $config['name'];?>登录后台</span></h3>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<?php
+							foreach($config['oli'] as $key =>$row){
+						?>
+							<li class="list-group-item">
+								<?php echo $key+1; ?>
+								<a href="?ac=edit&aid=<?php echo $row['aid']; ?>"><?php echo $row['title']; ?></a>
+								<span class="pull-right"><a href="?ac=del&aid=<?php echo $row['aid']; ?>">删除</a></span>
+								<span class="pull-right"><?php echo date("Y-m-d H:i:s",$row['creattime']); ?></span>
+							</li>
+						<?php } ?>
+							
+					</ul>
+				</div>
+				<div class="panel-footer">
+					<a class="btn btn-primary" href="?ac=add">添加物流订单</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
