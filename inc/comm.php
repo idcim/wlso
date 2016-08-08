@@ -10,7 +10,8 @@ class wonyun {
 	//连接数据库
 	function contdb() {
 		global $config;
-		$con = mysql_connect($config['host'].':'.$config['dbport'], $config['dbuser'], $config['dbpass']);
+		//$con = mysql_connect($config['host'].':'.$config['dbport'], $config['dbuser'], $config['dbpass']);
+		$con = mysql_connect($config['host'],$config['dbuser'],$config['dbpass']) or die("error connecting") ; //连接数据库
 		if (!$con) {
 			die('Could not connect: ' . mysql_error());
 		}
